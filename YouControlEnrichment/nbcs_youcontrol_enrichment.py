@@ -93,9 +93,12 @@ class YouControlEnrichment(Script):
                             
 
                     if key == "Перелік засновників/учасників юридичної особи":
-                        you_control_data["parent_tenant_name"] = values[0].strip()
-                        you_control_data["parent_tenant_edrpou"] = values[2].strip()
-                        you_control_data["parent_tenant_address"] = values[5].strip()
+                        if len(values) > 2:
+                            you_control_data["parent_tenant_name"] = values[0].strip()
+                        if len(values) > 3:
+                            you_control_data["parent_tenant_edrpou"] = values[2].strip()
+                        if len(values) > 5:
+                            you_control_data["parent_tenant_address"] = values[5].strip()
 
         return you_control_data
 
